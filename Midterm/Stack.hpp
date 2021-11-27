@@ -22,8 +22,16 @@ class Stack
            pool.pop_back();
            return el; 
         }
-        T &topEl()
+        T &topEl() //get first element
         {
-            
+            return pool.front();
+        }
+        bool isEmpty()
+        {
+            return pool.empty();
+        }
+        int size() //get number of elements
+        {
+            return pool.size();
         }
 }
