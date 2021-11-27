@@ -59,11 +59,15 @@ int main()
     int select=0;
     cout<<"Please select a sorting method from the following options:"<<endl;
     cout<<"1: Descending by Scores"<<endl<<"2: Descending by ID"<<endl<<"3: Alphabetical"<<endl;
-    cin>>select;
     while(select!=1 && select!=2 && select!=3)
     {
-        cout<<"Your selection must be 1, 2, or 3. Please input your selection.\n";
         cin>>select;
+        if(select!=1&&select!=2&&select!=3)
+        {
+            cout<<"Your selection must be 1, 2, or 3. Please input your selection.\n";
+            cin.clear();
+            cin.ignore(1000, '\n');
+        }
     }
     switch(select){
         case 1:
