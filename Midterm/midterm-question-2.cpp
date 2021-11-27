@@ -1,10 +1,11 @@
 #include <iostream>
 #include <queue>
 #include "Student.hpp"
+#include <string>
 
 using namespace std;
-
-class StudentCompare
+//To change the order of the Queue, just comment out the StudentCompare class and use one of the other ones
+class StudentCompare //Descending score order
 {
     public:
         int operator()(Student &lhs, Student &rhs)
@@ -18,7 +19,32 @@ class StudentCompare
             return lhssum < rhssum;
         }
 };
-
+//*****Put Students in Descending ID Order:*****
+/*class StudentCompare
+{
+    public:
+        int operator()(Student &lhs, Student &rhs)
+        {
+            int lhsid = 0, rhsid = 0;
+            lhsid=lhs.getID();
+            rhsid=rhs.getID();
+            return lhsid < rhsid;
+        }
+};
+*/
+//*****Put Students in Alphabetical Order:*****
+/*class StudentCompare
+{
+    public:
+        int operator()(Student &lhs, Student &rhs)
+        {
+            string lhsname = "A", rhsname = "A";
+            lhsname = lhs.getName();
+            rhsname = rhs.getName();
+            return lhsname > rhsname;
+        }
+};
+*/
 int main()
 {
     double g1[3]={95.0, 99.5, 90.0};
@@ -27,10 +53,10 @@ int main()
     double g4[3]={88.1, 23.5, 46.0};
     double g5[3]={90.2, 80.1, 70.0};
     Student s1 (100, "John", g1);
-    Student s2 (101, "Johnny", g2);
-    Student s3 (102, "Johnson", g3);
-    Student s4 (103, "Johnathan", g4);
-    Student s5 (104, "Jon", g5);
+    Student s2 (101, "Ben", g2);
+    Student s3 (102, "Allie", g3);
+    Student s4 (103, "Caleb", g4);
+    Student s5 (104, "Miles", g5);
     priority_queue<Student, vector<Student>, StudentCompare> pq;
     pq.push(s1);
     pq.push(s2);
