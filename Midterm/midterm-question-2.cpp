@@ -7,7 +7,7 @@ using namespace std;
 class StudentCompare
 {
     public:
-        int operator()(const Student &lhs, const Student &rhs)
+        int operator()(Student &lhs, Student &rhs)
         {
             double lhssum = 0.0, rhssum = 0.0;
             for (int i=0;i<3;i++)
@@ -15,9 +15,9 @@ class StudentCompare
                 lhssum += *(lhs.getScores()+i);
                 rhssum += *(rhs.getScores()+i);
             }
-            
+            return lhssum < rhssum;
         }
-}
+};
 
 int main()
 {
@@ -30,5 +30,20 @@ int main()
     Student s3 (102, "Johnson", g3);
 
     priority_queue<Student, vector<Student>, StudentCompare> pq;
+    pq.push(s1);
+    pq.push(s2);
+    pq.push(s3);
 
+    while(!pq.empty())
+    {
+        Student temp = pq.top();
+        cout<<"ID: "<<temp.getID()<<"\t";
+        cout<<"Name: "<<temp.getName()<<"\t";
+        for (int j=0;j<3;j++)
+        {
+            cout<<"Score "<<j+1<<": "<<*(temp.getScores() + j)<<"\t";
+        }
+        cout<<endl;
+        pq.pop();
+    }
 }
