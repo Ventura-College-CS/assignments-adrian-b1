@@ -32,12 +32,12 @@ int main()
     for(int i=0; i<studentnum;i++)
     {
         Student temp = students.pop();
-        cout<<"ID: "<<temp.getID<<"\t";
-        cout<<"Name: "<<temp.getName<<"\t";
+        cout<<"ID: "<<temp.getID()<<"\t";
+        cout<<"Name: "<<temp.getName()<<"\t";
         for (int j=0;j<3;j++)
         {
-            cout<<"Score "<<j+1<<": "<<
+            cout<<"Score "<<j+1<<": "<<*(temp.getScores() + j)<<"\t";
         }
-
+        cout<<endl;
     }
 }
