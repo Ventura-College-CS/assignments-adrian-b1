@@ -29,5 +29,10 @@ class Student
     {
         return sName;
     }
-    
+    double * getScores()
+    {
+        double *ptr;
+        ptr=scores;
+        return *ptr;
+    }
 }
