@@ -5,13 +5,16 @@
 #include <vector>
 using namespace std;
 
-template<class T>
+template<class T, int capacity=10>
 class Stack
 {
     private:
         vector<T> pool;
     public:
-        Stack();
+        Stack()
+        {
+            pool.reserve(capacity);
+        }
         void push(const T &el)
         {
             pool.push_back(el);
