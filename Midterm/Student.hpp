@@ -17,7 +17,7 @@ class Student
     Student(int i, string name, double *sc)
     {
         sID=i;
-        name=sName;
+        sName=name;
         for(int i=0;i<3;i++)
             scores[i]= *(sc+i);
     }
@@ -31,8 +31,8 @@ class Student
     }
     double * getScores()
     {
-        double *ptr;
-        ptr=scores;
-        return *ptr;
+        double *ptr=&scores[0];
+        return ptr;
     }
-}
+};
+#endif
