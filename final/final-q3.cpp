@@ -11,69 +11,70 @@ int main()
     int a, b;
     for (int i=0;i<25;i++)
     {
-        if(input[i]==('0'||'1'||'2'||'3'||'4'||'5'||'6'||'7'||'8'||'9'))
-        {switch(input){
+        if((input[i]=='0')||(input[i]=='1')||(input[i]=='2')||(input[i]=='3')||(input[i]=='4')||(input[i]=='5')||(input[i]=='6')||(input[i]=='7')||(input[i]=='8')||(input[i]=='9'))
+        {switch(input[i]){
             case '0':
-                queue.enqueue(0);
+                queue.push(0);
                 break;
             case '1':
-                queue.enqueue(1);
+                queue.push(1);
                 break;
             case '2':
-                queue.enqueue(2);
+                queue.push(2);
                 break;
             case '3':
-                queue.enqueue(3);
+                queue.push(3);
                 break;
             case '4':
-                queue.enqueue(4);
+                queue.push(4);
                 break;
             case '5':
-                queue.enqueue(5);
+                queue.push(5);
                 break;
             case '6':
-                queue.enqueue(6);
+                queue.push(6);
                 break;
             case '7':
-                queue.enqueue(7);
+                queue.push(7);
                 break;
             case '8':
-                queue.enqueue(8);
+                queue.push(8);
                 break;
             case '9':
-                queue.enqueue(9);
+                queue.push(9);
                 break;
             }
         }
         else
         {
-            if(input[i]==('+'||'*'||'/'||'-'||'%'))
+            if((input[i]=='+')||(input[i]=='*')||(input[i]=='/')||(input[i]=='-')||(input[i]=='%'))
             {
                 a=queue.front();
                 queue.pop();
                 b=queue.front();
                 queue.pop();
-                 switch(input){
+                 switch(input[i]){
                     case '*':
-                        queue.enqueue(a*b);
+                        queue.push(a*b);
                         break;
                     case '+':
-                        queue.enqueue(a+b);
+                        queue.push(a+b);
                         break;
                     case '/':
-                        queue.enqueue(a/b);
+                        queue.push(a/b);
                         break;
                     case '-':
-                        queue.enqueue(a-b);
+                        queue.push(a-b);
                         break;
                     case '%':
-                        queue.enqueue(a%b);
+                        queue.push(a%b);
                         break;
                     }
                 }
             else
-            {cout << "Input not recognized." << endl;}
+            {cout << "End calculation." << endl;
+            break;}
         }
-
-    }         
+    }
+cout<<"The result is " << queue.back()<<endl;       
 }
