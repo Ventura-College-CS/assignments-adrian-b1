@@ -21,7 +21,7 @@ class Course
         }
         void setCred(int courseCred)
         {
-            cred=coursecred;
+            cred=courseCred;
         }
         int getID()
         {
@@ -35,26 +35,46 @@ class Course
         {
             return cred;
         }
-}
+};
 
-Course findCourse(Course * ptr, int first, int last, int targetID)
+Course findCourse(Course array[], int first, int last, int targetID)
 {
     int mid;
-    Course ret;
-    if (first>last)
-        return -1;
+    Course ret;;
     mid = (first + last ) / 2;
-    if (targetID==*(ptr + mid).getID())
-        return mid;
-    if (targetID < *(ptr + mid).getID())
-        ret = binarySearch(ptr, first, mid-1, targetID);
+    if (targetID==array[mid].getID())
+        return array[mid];
+    if (targetID < array[mid].getID())
+        ret = findCourse(array, first, mid-1, targetID);
     else
-        ret = binarySearch(ptr, mid + 1, last, targetID);
+        ret = findCourse(array, mid + 1, last, targetID);
     return ret;
 }
 
 int main()
 {
     ifstream ifs;
-    Course *ptr= new Course [N];
+    Course array[10];
+    int tempid, tempcred;
+    string tempname;
+    ifs.open("courses.txt");
+    if ( ifs.fail())
+    {
+        cerr << "File open error\n";
+        exit(0);
+    }
+	for(int i=0;i<10; i++)
+    {
+        ifs >> tempid >> tempname >> tempcred;
+        array[i].setID(tempid);
+        array[i].setName(tempname);
+        array[i].setCred(tempcred);
+		if ( ifs.fail() )
+		{
+			cerr << "File Read Error\n";
+			exit(0);
+		}
+    }
+    cout << array[1].getName();
+	
 }
