@@ -1,0 +1,10 @@
+13214 English 4
+33827 Calculus 5
+43353 History 3
+48872 Physics 4
+54665 Chemistry 4
+59902 Theater 3
+66782 French 5
+77298 Statistics 5
+88987 Art 3
+89822 Economics 3
