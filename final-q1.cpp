@@ -45,7 +45,12 @@ class Course
 Course findCourse(Course array[], int first, int last, int targetID)
 {
     int mid;
-    Course ret;;
+    Course ret;
+    if (first>last)
+    {
+    cout<<"Target not found"<<endl;
+    return array[0];
+    }
     mid = (first + last ) / 2;
     if (targetID==array[mid].getID())
         {cout << "Found at array[" << mid <<"]" <<endl;
@@ -96,6 +101,6 @@ int main()
             }
         }
     }
-    temp=findCourse(array, 0,9, 54665);
+    temp=findCourse(array, 0,9, 13214);
     cout << temp.getID() << "  " << temp.getName() << "  " << temp.getCred();
 }
