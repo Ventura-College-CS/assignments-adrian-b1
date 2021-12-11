@@ -47,7 +47,7 @@ int partition(Course array[], int first, int last)
     int i = -1;
     for (int j=0; j<last;j++)
     {
-        if (array[j].getID<pivot)
+        if (array[j].getID()<pivot)
             swap(array[++i], array[j]);
     }
     swap(array[i+1],array[last]);
