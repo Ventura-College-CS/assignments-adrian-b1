@@ -10,7 +10,12 @@ class Course
         string name;
         int cred;
     public:
-        Course();
+        Course()
+        {
+            setID(0);
+            setName("course");
+            setCred(0);
+        }
         void setID(int courseid)
         {
             id=courseid;
