@@ -43,6 +43,7 @@ int main()
             case '9':
                 queue.enqueue(9);
                 break;
+            }
         }
         else
         {
@@ -72,7 +73,7 @@ int main()
                 }
             else
             {cout << "Input not recognized." << endl;}
-            }
-        
-        
+        }
+
+    }         
 }
