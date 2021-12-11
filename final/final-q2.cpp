@@ -53,14 +53,28 @@ int partition(Course array[], int first, int last)
     swap(array[i+1],array[last]);
     return i+1;
 }
-
+void qsort(Course array[], int first, int last)
+{
+    int pivot_idx;
+    if (first>=last)
+        return;
+    pivot_idx = partition(array, first, last);
+    qsort(array, first, pivot_idx-1);
+    qsort(array, pivot_idx+1, last);
+}
+void printCourses(Course array[], int N)
+{
+    for(int i=0;i<N;i++)
+    {
+        cout<<"ID: "<<array[i].getID()<<"\t Name: "<<array[i].getName()<<"\t Credit: "<<array[i].getCred()<<endl;
+    }
+}
 int main()
 {
     ifstream ifs;
     Course array[10];
     int tempid, tempcred;
     string tempname;
-    Course temp;
 
     ifs.open("courses.txt");
     if ( ifs.fail())
@@ -80,5 +94,9 @@ int main()
 			exit(0);
 		}
     }
-
+    printCourses(array, 10);
+    cout<<endl;
+    cout<< "Now sorting..."<< endl << endl;
+    qsort(array, 0, 9);
+    printCourses(array, 10);
 }
