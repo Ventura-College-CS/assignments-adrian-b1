@@ -62,6 +62,8 @@ int main()
     Course array[10];
     int tempid, tempcred;
     string tempname;
+    Course temp;
+
     ifs.open("courses.txt");
     if ( ifs.fail())
     {
@@ -80,6 +82,17 @@ int main()
 			exit(0);
 		}
     }
-    cout << array[1].getName();
-	
+    
+    for(int i=0; i<9;i++)
+    {
+        for(int j=i+1; j<10;j++)
+        {
+            if(array[i].getID()>array[j].getID())
+            {
+                temp=array[i];
+                array[i]=array[j];
+                array[j]=temp;
+            }
+        }
+    }
 }
