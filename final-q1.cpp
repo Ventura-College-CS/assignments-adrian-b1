@@ -11,10 +11,16 @@ class Course
         int cred;
     public:
         Course();
-        Course(int courseid, string coursename, int coursecred)
+        void setID(int courseid)
         {
             id=courseid;
+        }
+        void setName(string coursename)
+        {
             name=coursename;
+        }
+        void setCred(int courseCred)
+        {
             cred=coursecred;
         }
         int getID()
@@ -31,19 +37,24 @@ class Course
         }
 }
 
-Course findCourse(Course array[], int first, int last, int targetID)
+Course findCourse(Course * ptr, int first, int last, int targetID)
 {
     int mid;
     Course ret;
     if (first>last)
         return -1;
     mid = (first + last ) / 2;
-    if (targetID==array[mid].getID())
+    if (targetID==*(ptr + mid).getID())
         return mid;
-    if (targetID < array[mid].getID())
-        ret = binarySearch(array, first, mid-1, targetID);
+    if (targetID < *(ptr + mid).getID())
+        ret = binarySearch(ptr, first, mid-1, targetID);
     else
-        ret = binarySearch(array, mid + 1, last, targetID);
+        ret = binarySearch(ptr, mid + 1, last, targetID);
     return ret;
 }
 
+int main()
+{
+    ifstream ifs;
+    Course *ptr= new Course [N];
+}
